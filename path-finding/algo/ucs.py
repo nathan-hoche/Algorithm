@@ -10,6 +10,9 @@ class algorithm():
         self.result = []
         self.cost = 0
         self.time = -1
+        self.moveDone = []
+        self.movePossible = []
+        self.matrix = []
     
     def setup(self, matrix: list[list[int]]=None, start:tuple[int, int]=None, end: tuple[int, int]=None) -> None:
         if (matrix != None and start != None and end != None):
@@ -17,10 +20,6 @@ class algorithm():
             self.matrix = matrix
             self.start = start
             self.end = end
-            self.moveDone = []
-            self.movePossible = []
-            self.cost = 0
-            self.time = -1
     
     def countCost(self, isTest: bool=False) -> None:
         if not isTest:

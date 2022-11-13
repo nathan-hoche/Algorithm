@@ -10,15 +10,13 @@ class algorithm():
         self.result = []
         self.cost = 0
         self.time = -1
+        self.moveDone = []
     
     def setup(self, graph: list[list[int]]=None, start:tuple[int, int]=None, end: tuple[int, int]=None) -> None:
         if (graph != None and start != None and end != None):
             self.graph = graph
             self.start = start
             self.end = end
-            self.moveDone = []
-            self.cost = 0
-            self.time = -1
     
     def countCost(self, isTest: bool=False) -> None:
         if not isTest:
