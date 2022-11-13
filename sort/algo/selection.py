@@ -7,7 +7,7 @@ class algorithm():
         self.check = 0
         self.time = -1
     
-    def setup(self, numberList: list[list[int]]=None) -> None:
+    def setup(self, numberList: list[int]=None) -> None:
         if (numberList != None):
             self.numberList = numberList
     
