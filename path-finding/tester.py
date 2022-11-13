@@ -9,8 +9,9 @@ def load_algorithm(filename: str) -> object:
         sys.path.append(os.getcwd() + "/algo/")
         fd = importlib.import_module(filename.replace(".py", ""))
         print("Load: ", filename, "found.")
-    except:
+    except Exception as e:
         print("ERROR: File", filename, "not found.")
+        print(e)
         exit(0)
     try:
         classfd = fd.algorithm()
