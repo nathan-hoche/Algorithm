@@ -20,16 +20,17 @@ class algorithm():
     def run(self, isTest: bool=False) -> None:
         if not isTest:
             self.time = time.time()
-        
-            for i in range(len(self.numberList) -1):
-                self.countAction()
-                j = i + 1
-                switch = 0
-                while (i + switch >= 0 and self.numberList[i + switch] > self.numberList[j + switch]):
-                    self.numberList[i + switch], self.numberList[j + switch] = self.numberList[j + switch], self.numberList[i + switch]
+
+            for i in range(len(self.numberList), 1, -1):
+                current = self.numberList[0]
+                for j in range(1, i):
+                    if current < self.numberList[j]:
+                        current = self.numberList[j]
+                    self.countAction()
+                current = self.numberList.index(current)
+                if (current != i-1):
+                    self.numberList[current], self.numberList[i-1] = self.numberList[i-1], self.numberList[current]
                     self.countAction(swap=True)
-                    switch -= 1
-                self.countAction()
 
             self.time = time.time() - self.time
 
