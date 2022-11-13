@@ -56,7 +56,7 @@ class algorithm():
                 if (len(self.movePossible) == 0):
                     self.result = "No path found"
                     break
-                move = self.movePossible.index(min(self.movePossible, key=lambda x: x["g"]))
+                move = self.movePossible.index(max(self.movePossible, key=lambda x: x["g"]))
                 g = self.movePossible[move]["g"]
                 currentNode = self.movePossible.pop(move)["node"]
             
