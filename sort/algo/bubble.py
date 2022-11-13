@@ -21,6 +21,18 @@ class algorithm():
         if not isTest:
             self.time = time.time()
             
+            swapped = True
+            step = 0
+            while swapped:
+                swapped = False
+                for i in range(len(self.numberList) -1 - step):
+                    if self.numberList[i] > self.numberList[i + 1]:
+                        self.numberList[i], self.numberList[i + 1] = self.numberList[i + 1], self.numberList[i]
+                        self.countAction(swap=True)
+                        swapped = True
+                    else:
+                        self.countAction()
+                step += 1
 
             self.time = time.time() - self.time
 
