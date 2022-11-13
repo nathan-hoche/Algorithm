@@ -43,6 +43,7 @@ class algorithm():
                 if node.isEqual(point=self.start):
                     currentNode = node
                     break
+            print("Number of Nodes: ", len(self.graph))
             while currentNode.pos != self.end:
                 self.countCost()
                 self.moveDone.append(currentNode.pos)

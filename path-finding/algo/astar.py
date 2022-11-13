@@ -44,8 +44,7 @@ class algorithm():
                     currentNode = node
                     break
             g = 0
-            print("Start: ", currentNode.pos)
-            print("Length: ", len(self.graph))
+            print("Number of Nodes: ", len(self.graph))
             x = 0
             while currentNode.pos != self.end:
                 x += 1
@@ -57,9 +56,20 @@ class algorithm():
                 if (len(self.movePossible) == 0):
                     self.result = "No path found"
                     break
-                move = self.movePossible.index(min(self.movePossible, key=lambda x: x["h"] + x["g"]))
-                g = self.movePossible[move]["g"]
-                currentNode = self.movePossible.pop(move)["node"]
+                # Without personnal optimization: (Test all possibilities in plane case)
+                # move = self.movePossible.index(min(self.movePossible, key=lambda x: x["h"] + x["g"]))
+                # g = self.movePossible[move]["g"]
+
+                # Optimization: (To perform best way in plane case)
+                move = self.movePossible[0]
+                i = 0
+                x = 0
+                for m in self.movePossible:
+                    if (m['h'] + m["g"] < move["h"] + move["g"] or (m['h'] + m["g"] == move["h"] + move["g"] and m["g"] < move["g"])):
+                        move = m
+                        i = x
+                    x += 1
+                currentNode = self.movePossible.pop(i)["node"]
             
             self.graph = Format.formatMatrix(firstStart, self.end, self.matrix, self.moveDone)
             self.time = time.time() - self.time

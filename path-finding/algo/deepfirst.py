@@ -43,11 +43,8 @@ class algorithm():
                     currentNode = node
                     break
             g = 0
-            print("Start: ", currentNode.pos)
-            print("Length: ", len(self.graph))
-            x = 0
+            print("Number of Nodes: ", len(self.graph))
             while currentNode.pos != self.end:
-                x += 1
                 self.countCost()
                 self.moveDone.append(currentNode.pos)
                 for node in currentNode.link:
