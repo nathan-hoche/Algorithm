@@ -27,6 +27,12 @@ class algorithm():
         if not isTest:
             self.cost += 1
 
+    def canBePossible(self, pos: tuple[int, int]) -> bool:
+        for move in self.movePossible:
+            if move["node"].pos == pos:
+                return True
+        return False
+
     def run(self, isTest: bool=False) -> None:
         if not isTest:
             self.time = time.time()
@@ -41,13 +47,13 @@ class algorithm():
                 self.countCost()
                 self.moveDone.append(currentNode.pos)
                 for node in currentNode.link:
-                    if node.pos not in self.moveDone and node.pos not in self.movePossible:
+                    if node.pos not in self.moveDone and not self.canBePossible(node.pos):
                         self.movePossible.append({"node": node, "h": Heuristic.Manhattan(node.pos, self.end)})
-                self.movePossible.sort(key=lambda x: x["h"])
                 if (len(self.movePossible) == 0):
                     self.result = "No path found"
                     break
-                currentNode = self.movePossible.pop(0)["node"]
+                move = self.movePossible.index(min(self.movePossible, key=lambda x: x["h"] ))
+                currentNode = self.movePossible.pop(move)["node"]
             
             self.graph = Format.formatMatrix(firstStart, self.end, self.matrix, self.moveDone)
             self.time = time.time() - self.time
