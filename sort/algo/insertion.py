@@ -25,8 +25,9 @@ class algorithm():
                 self.countAction()
                 j = i + 1
                 switch = 0
-                while (j + switch >= 0 and self.numberList[i + switch] > self.numberList[j + switch]):
+                while (i + switch >= 0 and self.numberList[i + switch] > self.numberList[j + switch]):
                     self.numberList[i + switch], self.numberList[j + switch] = self.numberList[j + switch], self.numberList[i + switch]
+                    print(self.numberList)
                     self.countAction(swap=True)
                     switch -= 1
                 self.countAction()
