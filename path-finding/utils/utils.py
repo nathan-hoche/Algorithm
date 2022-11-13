@@ -10,25 +10,20 @@ class Node:
     def __str__(self) -> str:
         return "Node:" + str(self.pos)
     
-    def setLink(self, link: list[object]) -> None:
-        self.link.append(link)
+    def setLink(self, ListNode: list[object]) -> None:
+        LinkToAppend = [(self.pos[0], self.pos[1] + 1), (self.pos[0], self.pos[1] - 1), (self.pos[0] + 1, self.pos[1]), (self.pos[0] - 1, self.pos[1])]
+
+        for node in LinkToAppend:
+            for node2 in ListNode:
+                if node2.isEqual(point=node):
+                    self.link.append(node2)
+                    break
     
     def isEqual(self, node:object = None, point:tuple[int, int] = None) -> bool:
         if node != None:
             return self.pos == node.pos
         elif point != None:
             return self.pos == point
-        return False
-    
-    def isLinked(self, node: object) -> bool:
-        if (node.pos[0] == self.pos[0] and node.pos[1] == self.pos[1] + 1):
-            return True
-        elif (node.pos[0] == self.pos[0] and node.pos[1] == self.pos[1] - 1):
-            return True
-        elif (node.pos[0] == self.pos[0] + 1 and node.pos[1] == self.pos[1]):
-            return True
-        elif (node.pos[0] == self.pos[0] - 1 and node.pos[1] == self.pos[1]):
-            return True
         return False
 
 class Convert:
@@ -39,9 +34,7 @@ class Convert:
                 if matrix[i][j] == 0:
                     graph.append(Node((i, j)))
         for i in range(len(graph)):
-            for j in range(len(graph)):
-                if (graph[i].isLinked(graph[j])):
-                    graph[i].setLink(graph[j])
+            graph[i].setLink(graph)
         return graph
 
 class Format:
