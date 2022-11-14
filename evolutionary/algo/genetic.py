@@ -1,6 +1,14 @@
-
 from random import randint
 import time
+
+def findBestSubject(scores):
+    indexBestSubject = 0
+    x = 0
+    for i in scores:
+        if (i > scores[indexBestSubject]):
+            indexBestSubject = x
+        x += 1
+    return indexBestSubject
 
 class algorithm():
     def __init__(self) -> None:
@@ -39,7 +47,7 @@ class algorithm():
     
     def croisement(self):
         subjectPostCroisement = []
-        indexBestStudent = findBestStudent(self.scores)
+        indexBestSubject = findBestSubject(self.scores)
 
         for subject in self.actualGeneration:
             crossoverIndex = randint(0, len(subject))
@@ -52,7 +60,7 @@ class algorithm():
                 genePart[listGene[i]] = subject[listGene[i]]
                 i += 1
             while (i != len(subject)):
-                genePart[listGene[i]] = self.actualGeneration[indexBestStudent][listGene[i]]
+                genePart[listGene[i]] = self.actualGeneration[indexBestSubject][listGene[i]]
                 i += 1
             subjectPostCroisement.append(genePart)
             i = 0
@@ -60,7 +68,7 @@ class algorithm():
             # ADD Opposite child
             genePart = {}
             while (i != crossoverIndex):
-                genePart[listGene[i]] = self.actualGeneration[indexBestStudent][listGene[i]]
+                genePart[listGene[i]] = self.actualGeneration[indexBestSubject][listGene[i]]
                 i += 1
             while (i != len(subject)):
                 genePart[listGene[i]] = subject[listGene[i]]
