@@ -1,0 +1,20 @@
+{
+    "Objectif": "Increase the level of the student",
+    "Genes" : {
+        "list": ["math", "physics", "chemistry", "history"],
+        "limit": {
+            "min": 0,
+            "max": 100
+        },
+        "mutation": {
+            "min": -10,
+            "max": 10
+        }
+    },
+    "FitnessFunction" : "sum",
+    "Preferences" : {
+        "NB_GENERATIONS": 100,
+        "NB_INDIVIDUALS": 10,
+        "NB_PARENT": 5
+    }
+}
