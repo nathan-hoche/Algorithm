@@ -32,8 +32,12 @@ class algorithm():
         self.scores = []
         for subject in self.actualGeneration:
             score = 0
-            for mark in subject:
-                score += subject[mark]
+            if (self.problem["FitnessFunction"] == "sum"):
+                for mark in subject:
+                    score += subject[mark]
+            else:
+                print("ERROR: FitnessFunction not found")
+                exit(0)
             self.scores.append(score)
     
     def selection(self):
@@ -100,6 +104,7 @@ class algorithm():
 
     def print(self, isTest: bool=False) -> None:
         if not isTest:
+            print("Objectif: " + self.problem["Objectif"])
             print("First Generation:", *self.firstGeneration, sep='\n')
             print("Final Generation:", *self.actualGeneration, sep='\n')
             print("Time: ", self.time)

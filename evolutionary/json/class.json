@@ -1,5 +1,5 @@
 {
-    "Objectif": "Increase the level of the student",
+    "Objectif": "Increase the level of students",
     "Genes" : {
         "list": ["math", "physics", "chemistry", "history"],
         "limit": {
