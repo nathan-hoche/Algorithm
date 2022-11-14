@@ -1,6 +1,5 @@
 import time
 
-
 class algorithm():
     def __init__(self) -> None:
         self.numberList = []
@@ -17,7 +16,6 @@ class algorithm():
             if swap:
                 self.swap += 1
             self.check += 1
-
 
     def partition(self, array, low, high):
         pivot = array[high]
