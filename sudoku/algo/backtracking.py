@@ -31,7 +31,6 @@ class algorithm():
                     return None
         return map
 
-  
     def run(self, isTest: bool=False) -> None:
         if not isTest:
             self.time = time.time()
@@ -41,7 +40,6 @@ class algorithm():
 
     def print(self, isTest: bool=False) -> None:
         if not isTest:
-            print("Possible Move:")
             x = 0
             for line in self.map:
                 y = 0
