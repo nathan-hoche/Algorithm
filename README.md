@@ -14,7 +14,7 @@
 
 ### Sequence Search Sorted List
 - [x] Binary Search
-- [ ] Fibonacci Search
+- [x] Fibonacci Search
 - [x] Jump Search
 - [ ] Predictive Search
 - [ ] Uniform Binary Search
