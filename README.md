@@ -17,7 +17,6 @@
 - [x] Fibonacci Search
 - [x] Jump Search
 - [x] Interpolation Search
-- [ ] Uniform Binary Search
 
 ### Sort
 - [x] Bubble Sort
@@ -31,9 +30,7 @@
 
 ### Sudoku
 - [x] Backtracking
-- [ ] Naive
-- [ ] Bit Masks
-- [ ] Cross-Hatching Backtraking
+- [x] Cross-Hatching Backtraking
 
 ### Tic-Tac-Toe
 - [x] Minmax
