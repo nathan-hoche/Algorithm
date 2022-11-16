@@ -16,7 +16,7 @@
 - [x] Binary Search
 - [x] Fibonacci Search
 - [x] Jump Search
-- [ ] Predictive Search
+- [x] Interpolation Search
 - [ ] Uniform Binary Search
 
 ### Sort
