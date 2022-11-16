@@ -29,8 +29,6 @@ class algorithm():
         while (actual[0] != len(map)):
             if (map[actual[0]][actual[1]] == 0):
                 pn = self.possibleNumber(actual[0], actual[1], map)
-                if (len(pn) == 0):
-                    return None
                 for n in pn:
                     map[actual[0]][actual[1]] = n
                     if (self.backtracking(map, actual) != None):
