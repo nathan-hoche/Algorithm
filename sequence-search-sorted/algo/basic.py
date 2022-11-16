@@ -16,16 +16,19 @@ class algorithm():
         if not isTest:
             self.time = time.time()
             
+            i = 0
             for x in self.list:
                 if x == self.objectif:
                     self.found = True
+                    self.index = i
                     break
+                i += 1
             self.time = time.time() - self.time
 
     def print(self, isTest: bool=False) -> None:
         if not isTest:
             #print("List: ", self.list)
-            print("Size of list: ", len(self.list))
-            print("Objectif: ", self.objectif)
-            print("Found: ", self.found)
-            print("Time: ", self.time)
+            print("Size of list:", len(self.list))
+            print("Objectif:", self.objectif)
+            print("Found:", self.found, "at index", self.index)
+            print("Time:", self.time)

@@ -13,9 +13,9 @@
 - [x] Astar
 
 ### Sequence Search Sorted List
-- [ ] Binary Search
+- [x] Binary Search
 - [ ] Fibonacci Search
-- [ ] Jump Search
+- [x] Jump Search
 - [ ] Predictive Search
 - [ ] Uniform Binary Search
 

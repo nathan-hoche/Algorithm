@@ -5,6 +5,7 @@ class algorithm():
         self.list = []
         self.objectif = -1
         self.found = False
+        self.index = -1
         self.time = -1
     
     def setup(self, info: dict=None) -> None:
@@ -22,6 +23,7 @@ class algorithm():
                 m = int((x + y) / 2)
                 if self.list[m] == self.objectif:
                     self.found = True
+                    self.index = m
                     break
                 if self.list[m] < self.objectif:
                     x = m + 1
@@ -32,7 +34,7 @@ class algorithm():
     def print(self, isTest: bool=False) -> None:
         if not isTest:
             #print("List: ", self.list)
-            print("Size of list: ", len(self.list))
-            print("Objectif: ", self.objectif)
-            print("Found: ", self.found)
-            print("Time: ", self.time)
+            print("Size of list:", len(self.list))
+            print("Objectif:", self.objectif)
+            print("Found:", self.found, "at index", self.index)
+            print("Time:", self.time)
