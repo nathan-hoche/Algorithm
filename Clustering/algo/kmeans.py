@@ -60,7 +60,8 @@ class algorithm():
 
             lline = len(self.pointArray[0])
             for x in range(len(self.pointList)):
-                self.imgpx[x % lline, int(x / lline)] = tuple(self.clusterList[clusterFind[x]]["center"]) if clusterFind[x] != -1 else (255, 255, 255)
+                if (clusterFind[x] != -1):
+                    self.imgpx[x % lline, int(x / lline)] = tuple(self.clusterList[clusterFind[x]]["center"])
             self.img.save("img/result.png")
 
     def print(self, isTest: bool=False) -> None:
