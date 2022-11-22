@@ -16,9 +16,19 @@ python3 tester.py [algorithm] [TestingFile]
 > https://en.wikipedia.org/wiki/List_of_algorithms
 > https://medium.com/techie-delight/top-25-algorithms-every-programmer-should-know-373246b4881b
 
+## Clusturing
+- [x] K-means
+- [ ] Hierarchical
+- [ ] Distribution-based
+- [ ] Density-based
+- [ ] Grid-based
+
 ### Evolutionnary
 - [x] Genetic Algorithm
 - [ ] Swarm Intelligence
+
+### Minimum spanning tree
+- [ ] Kruskal
 
 ### Path Finding
 - [x] Random
@@ -50,8 +60,7 @@ python3 tester.py [algorithm] [TestingFile]
 ### Tic-Tac-Toe
 - [x] Minmax
 
-### Minimum spanning tree
-- [ ] Kruskal
+
 
 ## You search an algorithm which is not in this list?
 In this case don't hesitate to add an issues! I tried to add a lot of different algorithm but I don't know all algorithms. I will try to add your algorithm in less than 2 weeks! ;)
