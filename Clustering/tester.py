@@ -3,6 +3,7 @@ import sys
 import importlib
 from PIL import Image
 import numpy as np
+import json
 
 ######## Loading Part ########
 
@@ -29,10 +30,14 @@ def load_algorithm(filename: str) -> object:
         exit(0)
     return classfd
 
-def load_variable(filename: str):
+def load_variable(jsonFile: str):
+    fd = open("json/" + jsonFile, "r")
+    jsonContent = json.load(fd)
+    fd.close()
+    filename = jsonContent["image"]
     try:
         img = Image.open("img/" + filename)
-        return np.array(img).tolist(), img.load(), img
+        return jsonContent, np.array(img).tolist(), img.load(), img
     except Exception as e:
         print("ERROR: File", filename, "not found.")
         print(e)
@@ -47,8 +52,8 @@ def main():
         print("ERROR: Invalid number of arguments.\n Usage: python3 tester.py [algo] [jsonfile]")
         return
     algo = load_algorithm(sys.argv[1])
-    content, imgpx, img = load_variable(sys.argv[2])
-    algo.setup(content, img, imgpx)
+    jsonContent, content, imgpx, img = load_variable(sys.argv[2])
+    algo.setup(jsonContent, content, img, imgpx)
     algo.run()
     algo.print()
 
