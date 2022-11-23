@@ -18,6 +18,7 @@ python3 tester.py [algorithm] [TestingFile]
 
 ## Clusturing
 - [x] K-means
+- [x] KNN 
 - [ ] Hierarchical
 - [ ] Distribution-based
 - [ ] Density-based
