@@ -6,14 +6,15 @@ class algorithm():
     def __init__(self) -> None:
         self.pointList = []
         self.pointArray = []
-        self.k = 5
+        self.k = -1
         self.clusterList = []
         self.img = None
         self.imgpx = None
         self.time = -1
     
-    def setup(self, pointArray: list[list[int, int, int]]=None, img:Image=None, imgpx=None) -> None:
-        if (pointArray != None):
+    def setup(self, problem:dict=None, pointArray: list[list[int, int, int]]=None, img:Image=None, imgpx=None) -> None:
+        if (problem != None and pointArray != None):
+            self.k = problem["nbCluster"]
             self.img = img
             self.imgpx = imgpx
             self.pointArray = pointArray
@@ -30,6 +31,18 @@ class algorithm():
         count = self.clusterList[cluster]["count"]
         self.clusterList[cluster]["center"] = [int(total[0] / count), int(total[1] / count), int(total[2] / count)]
     
+    def findBestCluster(self, pt: list[int, int, int]) -> int:
+        minIndex = 0
+        minValue = -1
+        for i in range(len(self.clusterList)):
+            dist = 0
+            for j in range(3):
+                dist += abs(pt[j] - self.clusterList[i]["center"][j])
+            if (minValue == -1 or dist < minValue):
+                minValue = dist
+                minIndex = i
+        return minIndex
+    
     def run(self, isTest: bool=False) -> None:
         if not isTest:
             self.time = time.time()
@@ -44,13 +57,7 @@ class algorithm():
             while(len(ptList) > 0):
                 pt = ptList.pop(0)
                 if (sum(pt) < 1000):
-                    minIndex = 0
-                    minValue = -1
-                    for i in range(self.k):
-                        dist = abs(sum(pt) - sum(self.clusterList[i]["center"]))
-                        if (minValue == -1 or dist < minValue):
-                            minValue = dist
-                            minIndex = i
+                    minIndex = self.findBestCluster(pt)
                     clusterFind.append(minIndex)
                     self.addPoint(pt, minIndex)
                 else:
