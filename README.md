@@ -1,5 +1,5 @@
 # About this Project
-This project a list of all the algorithm I saw/use. I wanted to let anyone know how to easily implement an algorithm in a lot of different case. The objectif of this project is to have an easy way to see the difference between all algorithm.
+This project is a list of all the algorithm I saw/use. I wanted to let anyone know how to easily implement an algorithm in a lot of different case. The objectif of this project is to have an easy way to see the difference between all algorithm.
 
 # How to test an algorithm:
 
@@ -61,6 +61,8 @@ python3 tester.py [algorithm] [TestingFile]
 ### Tic-Tac-Toe
 - [x] Minmax
 
+### Gradient Descent
+- [ ] SGD
 
 
 ## You search an algorithm which is not in this list?
