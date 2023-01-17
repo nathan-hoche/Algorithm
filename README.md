@@ -62,6 +62,7 @@ python3 tester.py [algorithm] [TestingFile]
 - [x] Minmax
 
 ### Gradient Descent
+- [x] Basic
 - [ ] SGD
 
 
