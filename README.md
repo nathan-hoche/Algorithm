@@ -16,7 +16,7 @@ python3 tester.py [algorithm] [TestingFile]
 > https://en.wikipedia.org/wiki/List_of_algorithms
 > https://medium.com/techie-delight/top-25-algorithms-every-programmer-should-know-373246b4881b
 
-## Clusturing
+## Clustering
 - [x] K-means
 - [x] KNN 
 - [ ] Hierarchical
